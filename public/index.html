@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Paraphrasing Tool</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── Header ─────────────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="container">
+      <h1 class="header__title">AI Paraphrasing Tool</h1>
+      <p class="header__tagline">Rewrite any text instantly — choose your style, tone, and audience.</p>
+    </div>
+  </header>
+
+  <!-- ─── Main Content ───────────────────────────────────────────────────── -->
+  <main class="main">
+    <div class="container">
+      <div class="panels">
+
+        <!-- Input Panel -->
+        <section class="panel panel--input" aria-label="Input">
+          <h2 class="panel__title">Original Text</h2>
+
+          <textarea
+            id="inputText"
+            class="textarea"
+            placeholder="Enter the text you want to paraphrase (minimum 10 characters)..."
+            maxlength="5000"
+            aria-label="Original text"
+          ></textarea>
+
+          <div class="char-counter">
+            <span id="charCount">0</span> / 5000
+          </div>
+
+          <!-- Controls: mode, tone, audience -->
+          <div class="controls">
+
+            <div class="control-group">
+              <label class="label" for="modeSelect">Paraphrasing Mode</label>
+              <select id="modeSelect" class="select" aria-label="Paraphrasing mode">
+                <option value="">— Select a mode —</option>
+                <option value="standard">Standard</option>
+                <option value="professional">Professional</option>
+                <option value="academic">Academic</option>
+                <option value="creative">Creative</option>
+                <option value="simple">Simple</option>
+                <option value="formal">Formal</option>
+                <option value="casual">Casual</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label class="label" for="toneSelect">Tone</label>
+              <select id="toneSelect" class="select" aria-label="Tone">
+                <option value="neutral">Neutral</option>
+                <option value="confident">Confident</option>
+                <option value="empathetic">Empathetic</option>
+                <option value="witty">Witty</option>
+                <option value="authoritative">Authoritative</option>
+                <option value="friendly">Friendly</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label class="label" for="audienceInput">
+                Target Audience <span class="label__optional">(optional)</span>
+              </label>
+              <input
+                id="audienceInput"
+                class="input"
+                type="text"
+                placeholder="e.g. business executives, students, general public"
+                maxlength="100"
+                aria-label="Target audience"
+              />
+            </div>
+
+          </div>
+
+          <!-- Action buttons -->
+          <div class="actions">
+            <button id="paraphraseBtn" class="btn btn--primary">Paraphrase</button>
+            <button id="clearBtn" class="btn btn--secondary">Clear</button>
+          </div>
+        </section>
+
+        <!-- Output Panel -->
+        <section class="panel panel--output" aria-label="Output">
+          <h2 class="panel__title">Paraphrased Text</h2>
+
+          <!-- Loading spinner (hidden by default) -->
+          <div id="spinner" class="spinner" aria-hidden="true" hidden>
+            <div class="spinner__circle"></div>
+            <p class="spinner__text">Paraphrasing...</p>
+          </div>
+
+          <!-- Error message (hidden by default) -->
+          <div id="errorMsg" class="error-msg" role="alert" hidden></div>
+
+          <!-- Result area -->
+          <div id="outputText" class="output-text" aria-live="polite"></div>
+
+          <!-- Copy button (hidden until there is a result) -->
+          <button id="copyBtn" class="btn btn--secondary btn--copy" hidden>
+            Copy to Clipboard
+          </button>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
